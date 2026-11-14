@@ -134,7 +134,7 @@ def ensure_weights():
             and e["path"].startswith("loras/") and ".." not in e["path"] \
             and isinstance(e["bytes"], int) and len(e["sha256"]) == 64, \
             "bad EXTRA_FILES_JSON"
-        weights = extra + weights
+    weights = extra + weights
     # Free-space requirement counts only what still has to arrive:
     # unverified files minus the bytes already sitting in their .part.
     remaining = 0
