@@ -128,6 +128,9 @@ def verified(dest, w):
 
 def ensure_weights():
     weights = json.load(open(os.path.join(HERE, "weights.json")))
+  extra = os.environ.get("EXTRA_FILES_JSON")
+if extra:
+  weights = json.loads(extra) + weights
     # Free-space requirement counts only what still has to arrive:
     # unverified files minus the bytes already sitting in their .part.
     remaining = 0
